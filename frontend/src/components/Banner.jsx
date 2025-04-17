@@ -6,15 +6,14 @@ const Banner = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Cycle images every 2 seconds (2000ms)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         (prevIndex + 1) % imageGallary.length
       );
-    }, 5000); // Change every 2 seconds
+    }, 5000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
   const currentImage = imageGallary[currentImageIndex].image;
